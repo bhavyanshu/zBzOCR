@@ -1,0 +1,10 @@
+*.pyc
+*.py~
+*.png
+*.jpeg
+*.jpg
+*.tif
+*.tiff
+*.gif
+*.html~
+.#*
