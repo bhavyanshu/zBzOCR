@@ -36,8 +36,7 @@ Now simply cd into the directory and run *python setup.py install*. It will inst
 
 #Current Version : 1.0.0
 
-
-
+			
 #Change log:
 
 * Version 1.0.0 - 23rd September 2013, The first release. 
