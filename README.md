@@ -11,10 +11,9 @@ zBzOCR is a GUI tool written in python which helps extract text from images. It 
 ###WINDOWS :
 Python 2.7.5
 
-1. Download & install (Any one of the below). Don't forget to add it to your path after installation. Example: Enter in Command prompt PATH=C:\Python27
-
-http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi				
-http://www.python.org/ftp/python/2.7.5/python-2.7.5.amd64.msi					
+1. Download & install (Any one of the below). Don't forget to add it to your path after installation. Example: Enter in Command prompt PATH=C:\Python27		
+[Python 2.7.5 MSI file](http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi)				
+[Python 2.7.5 AMD64 MSI File](http://www.python.org/ftp/python/2.7.5/python-2.7.5.amd64.msi)					
 
 2. You might need setuptools as well. So go on and download it from below link.
 https://pypi.python.org/pypi/setuptools/1.1.6
