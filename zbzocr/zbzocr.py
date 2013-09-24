@@ -14,6 +14,7 @@ try:
 	from tesseract import image_to_string
 except ImportError:
     raise ImportError,"The Tesseract module is required to run this program"
+import os
 
 
 
@@ -75,7 +76,7 @@ class MainGUI(Frame):
 def main():
   
     root = Tk()
-    root.option_readfile('zbzocr/optionDB')
+    root.option_readfile(os.path.join(os.path.dirname(__file__), 'optionDB')) #Made file path OS independent
     root.geometry("800x600")
     app = MainGUI(root)
     root.mainloop()  
