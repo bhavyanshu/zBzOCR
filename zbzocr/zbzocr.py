@@ -1,4 +1,9 @@
-
+#!/usr/bin/env python
+'''
+Author : Bhavyanshu Parasher
+Email : bhavyanshu@codershangout.org
+Description : zBzOCR is a GUI tool written in python which helps extract text from images. It is based on the tesseract-ocr engine.
+'''
 from PIL import *
 from Tkinter import *
 from ttk import *

@@ -42,6 +42,5 @@ setup(
         'setuptools',
         'docutils',
 	'pil',
-	'easygui',
         ],
 )
