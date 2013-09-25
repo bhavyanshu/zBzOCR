@@ -11,6 +11,7 @@ from Tkinter import *
 import Tkinter as tk
 from ttk import *
 import tkFileDialog 
+import os
 import sys
 try:
 	import Image
@@ -23,12 +24,13 @@ except ImportError:
 
 
 def openhelp(event=None):
-	print "Help!"
+	myTextWidget= Text() # set up a text widget as a root (window)
+	myFile = file(os.path.join(os.path.dirname(__file__), 'help.txt'))
+	myText= myFile.read() # read the file to variable
+	myFile.close() # close file handle
+	myTextWidget.insert(0.0,myText) # insert the file's text into the text
+	myTextWidget.pack(expand=1, fill=BOTH) # show the widget
 
-
-
-
-#Top Menu bar functions
 def onExit(event=None):
         quit()
 
@@ -61,4 +63,3 @@ def loadImage(loadthisimage):
 	NewWindow.geometry("%dx%d+%d+%d" % (w, h, x, y))
 	Label(NewWindow, image=image1).pack()
 	NewWindow.mainloop()  # start the GUI for newWindow
-		
