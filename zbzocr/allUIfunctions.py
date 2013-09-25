@@ -6,7 +6,9 @@ Description : zBzOCR is a GUI tool written in python which helps extract text fr
 '''
 
 from PIL import *
+from PIL import Image, ImageTk
 from Tkinter import *
+import Tkinter as tk
 from ttk import *
 import tkFileDialog 
 import sys
@@ -42,4 +44,21 @@ def loadFile():
 	    txt = Text()
 	    txt.pack(fill=BOTH, expand=1)
             txt.insert(END, content)
+	    loadImage(fl)
 
+def loadImage(loadthisimage):
+	NewWindow = Toplevel()
+	NewWindow.title('Original Image')
+	# load the file and covert it to a Tkinter image object
+	image1 = ImageTk.PhotoImage(Image.open(loadthisimage))
+	# get the image size
+	w = image1.width()
+	h = image1.height()
+	# position coordinates of newwindow 'upper left corner'
+	x = 0
+	y = 0
+	# make the toplevel window the size of the image
+	NewWindow.geometry("%dx%d+%d+%d" % (w, h, x, y))
+	Label(NewWindow, image=image1).pack()
+	NewWindow.mainloop()  # start the GUI for newWindow
+		
