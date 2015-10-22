@@ -41,6 +41,6 @@ setup(
     install_requires = [
         'setuptools',
         'docutils',
-	'pil',
+	'pillow',
         ],
 )

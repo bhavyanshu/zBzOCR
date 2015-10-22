@@ -6,11 +6,12 @@ Description : zBzOCR is a GUI tool written in python which helps extract text fr
 '''
 
 from PIL import *
-from PIL import Image, ImageTk
+from PIL import Image
 from Tkinter import *
 import Tkinter as tk
 from ttk import *
 import tkFileDialog 
+import os
 import sys
 try:
 	import Image
@@ -23,32 +24,30 @@ except ImportError:
 
 
 def openhelp(event=None):
-	print "Help!"
+	myTextWidget= Text() # set up a text widget as a root (window)
+	myFile = file(os.path.join(os.path.dirname(__file__), 'tessdata/help.txt'))
+	myText= myFile.read() # read the file to variable
+	myFile.close() # close file handle
+	myTextWidget.insert(0.0,myText) # insert the file's text into the text
+	myTextWidget.pack(expand=1, fill=BOTH) # show the widget
 
-
-
-
-#Top Menu bar functions
 def onExit(event=None):
-        quit()
+	quit()
 
 def loadFile():
-      
-        ftypes = [('Supported Image files', '*.png'), ('All files', '*')]
-        dlg = tkFileDialog.Open(filetypes = ftypes)
-        fl = dlg.show()
-        
-        if fl != '':
-            content=image_to_string(Image.open(fl))
-	    '''Create a Text widget'''
-	    txt = Text()
-	    txt.pack(fill=BOTH, expand=1)
-            txt.insert(END, content)
-	    loadImage(fl)
+	ftypes = [('Supported Image files', '*.png'), ('All files', '*')]
+	fl = tkFileDialog.askopenfile(filetypes = ftypes,title='Choose a file')
+	if fl != None:
+		content=image_to_string(Image.open(fl))
+		'''Create a Text widget'''
+		txt = Text()
+		txt.pack(fill=BOTH, expand=1)
+		txt.insert(END, content)
+		loadImage(fl)
 
 def loadImage(loadthisimage):
 	NewWindow = Toplevel()
-	NewWindow.title('Original Image')
+	ewWindow.title('Original Image')
 	# load the file and covert it to a Tkinter image object
 	image1 = ImageTk.PhotoImage(Image.open(loadthisimage))
 	# get the image size
@@ -61,4 +60,3 @@ def loadImage(loadthisimage):
 	NewWindow.geometry("%dx%d+%d+%d" % (w, h, x, y))
 	Label(NewWindow, image=image1).pack()
 	NewWindow.mainloop()  # start the GUI for newWindow
-		

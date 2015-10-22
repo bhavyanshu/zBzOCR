@@ -15,8 +15,28 @@ try:
 except ImportError:
     raise ImportError,"The Tesseract module is required to run this program"
 import os
+import Tkinter as tk
 
+'''Initializing splashscreen'''
 
+root = tk.Tk()
+# show no frame
+root.overrideredirect(True)
+width = root.winfo_screenwidth()
+height = root.winfo_screenheight()
+root.geometry('%dx%d+%d+%d' % (width*0.8, height*0.8, width*0.1, height*0.1))
+# take a .jpg picture you like, add text with a program like PhotoFiltre
+# (free from http://www.photofiltre.com) and save as a .gif image file
+image_file = os.path.join(os.path.dirname(__file__), 'tessdata/splash.gif')
+#assert os.path.exists(image_file)
+# use Tkinter's PhotoImage for .gif files
+image = tk.PhotoImage(file=image_file)
+canvas = tk.Canvas(root, height=height*0.8, width=width*0.8, bg="white")
+canvas.create_image(width*0.8/2, height*0.8/2, image=image)
+canvas.pack()
+# show the splash screen for 5000 milliseconds then destroy
+root.after(5000, root.destroy)
+root.mainloop()
 
 
 class MainGUI(Frame):
@@ -36,20 +56,13 @@ class MainGUI(Frame):
         Style().configure("TFrame", background="#666", foreground="#FFF")
         
 	
-	labelhome = Label(self, text="Tip: To start importing, go to File>Import>Image",background="#666", foreground="#FFF").pack(side=TOP, expand=YES, pady=10) #label for home screen
-
-	'''Button stack for home screen'''
-	
-	helpbutton = Button(self, text="Help", command=openhelp).pack(side=TOP, expand=YES, pady=2, anchor=N)
-	
-
+	labelhome = Label(self, text="Tip: To start importing, go to File>Import>Image",background="#666", foreground="#FFF").pack(side=TOP, expand=YES, pady=10)
 
 
 	'''Top menu bar'''
 	
         menubar = Menu(self.parent)
         self.parent.config(menu=menubar)
-        
         
 	helpMenu = Menu(menubar)
 	
@@ -67,17 +80,19 @@ class MainGUI(Frame):
 	submenu2 = Menu(helpMenu)
 	submenu2.add_command(label="Help")
 	menubar.add_cascade(label="Help", underline=0, menu=helpMenu)
-	helpMenu.add_command(label='README', underline=0)
+	helpMenu.add_command(label='README', underline=0, command=openhelp)
 	helpMenu.add_command(label='About', underline=0)
 	
 
 
-
 def main():
-  
-    root = Tk()
+    root = Tk()	
     root.option_readfile(os.path.join(os.path.dirname(__file__), 'optionDB')) #Made file path OS independent
-    root.geometry("800x600")
+    #root.overrideredirect(True)
+    width = root.winfo_screenwidth()
+    height = root.winfo_screenheight()
+    root.geometry('%dx%d+%d+%d' % (width*0.8, height*0.8, width*0.1, height*0.1))
+    #root.geometry("800x600")
     app = MainGUI(root)
     root.mainloop()  
 
