@@ -27,7 +27,7 @@ height = root.winfo_screenheight()
 root.geometry('%dx%d+%d+%d' % (width*0.8, height*0.8, width*0.1, height*0.1))
 # take a .jpg picture you like, add text with a program like PhotoFiltre
 # (free from http://www.photofiltre.com) and save as a .gif image file
-image_file = os.path.join(os.path.dirname(__file__), 'splash.gif')
+image_file = os.path.join(os.path.dirname(__file__), 'tessdata/splash.gif')
 #assert os.path.exists(image_file)
 # use Tkinter's PhotoImage for .gif files
 image = tk.PhotoImage(file=image_file)
@@ -56,17 +56,7 @@ class MainGUI(Frame):
         Style().configure("TFrame", background="#666", foreground="#FFF")
         
 	
-	labelhome = Label(self, text="Tip: To start importing, go to File>Import>Image",background="#666", foreground="#FFF").pack(side=TOP, expand=YES, pady=10) #label for home screen
-
-	'''Button stack for home screen'''
-	
-        # Exit button
-	exit_image = os.path.join(os.path.dirname(__file__), 'exit.gif')
-        self.image = tk.PhotoImage(file=exit_image)
-        self.ne = tk.Button(self, height=20,width=20,image=self.image, command=onExit)
-        # ... and using place as the geometry manager
-        self.ne.place(relx=1.0, rely=0.0, anchor="ne")
-
+	labelhome = Label(self, text="Tip: To start importing, go to File>Import>Image",background="#666", foreground="#FFF").pack(side=TOP, expand=YES, pady=10)
 
 
 	'''Top menu bar'''
@@ -98,7 +88,7 @@ class MainGUI(Frame):
 def main():
     root = Tk()	
     root.option_readfile(os.path.join(os.path.dirname(__file__), 'optionDB')) #Made file path OS independent
-    root.overrideredirect(True)
+    #root.overrideredirect(True)
     width = root.winfo_screenwidth()
     height = root.winfo_screenheight()
     root.geometry('%dx%d+%d+%d' % (width*0.8, height*0.8, width*0.1, height*0.1))

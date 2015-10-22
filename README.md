@@ -1,6 +1,8 @@
 zBzOCR
 ======
 
+- No time to maintain this project
+
 ###What is it?
 zBzOCR is a GUI tool written in python which helps extract text from images. It is based on the tesseract-ocr engine.
 
@@ -36,6 +38,24 @@ Now simply cd into the directory and run *python setup.py install*. It will inst
 2. If you are running linux, then you might already be having complete python package in your system. If you want to check if you have python, then run in terminal *which python*. If you don't have, then you need to install python 2.7.X in your linux machine. 
 
 3. Then you need to cd into the directory of my program and run *python setup.py install*. It will install my program in your linux machine. Now to use the program, simply issue *python zbzocr/zbzocr.py*. There is a test folder with a PNG image file, try it out on that. It will give you the basic idea of how it works. 
+
+****************************************************************************
+
+#LICENSE
+
+
+> Copyright 2013 Bhavyanshu Parasher
+
+> Licensed under the Apache License, Version 2.0 (the "License"); you
+may not use this project except in compliance with the License. You 
+may obtain a copy of the License at 
+> http://www.apache.org/licenses/LICENSE-2.0.
+
+>Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
+implied. See the License for the specific language governing 
+permissions and limitations under the License.
 
 ******************************************************************************
 
